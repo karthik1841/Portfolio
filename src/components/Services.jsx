@@ -7,79 +7,81 @@ gsap.registerPlugin(ScrollTrigger);
 const servicesData = [
   {
     id: '01',
-    title: 'AI FULL STACK DEVELOPMENT',
-    description: 'I build scalable, high-performance web applications by combining modern frontend frameworks, robust backend systems, and AI-powered solutions. From planning and architecture to deployment, I create secure, responsive, and production-ready digital experiences.',
+    title: 'AI ENGINEERING',
+    description: 'I build complete AI products around LLMs and machine learning models, not just demos. I focus on practical AI systems including LLM-powered applications, intelligent agents, multi-agent automation, and production-oriented AI solutions.',
     capabilities: [
-      'Develop responsive web applications with React.js & Next.js',
-      'Build secure REST APIs using FastAPI & Node.js',
-      'Design scalable backend architecture and databases',
-      'Integrate AI-powered features and automation',
-      'Deliver clean, maintainable, production-ready code'
+      'LLM-powered applications with LangChain',
+      'AI Agents and Multi-Agent Systems',
+      'RAG concepts and implementation',
+      'Prompt Engineering and optimization',
+      'Open-source LLM integration',
+      'AI workflow automation'
     ],
     buttonText: 'VIEW PROJECTS'
   },
   {
     id: '02',
-    title: 'FRONTEND DEVELOPMENT',
-    description: 'I create fast, responsive, and visually engaging user interfaces that provide seamless user experiences across desktop, tablet, and mobile devices.',
+    title: 'MACHINE LEARNING',
+    description: 'I develop machine learning solutions for real-world problems including classification, prediction, and data analysis using proven ML frameworks and agricultural datasets.',
     capabilities: [
-      'React.js',
-      'Next.js',
-      'TypeScript',
-      'Tailwind CSS',
-      'GSAP Animations',
-      'Responsive Design'
+      'Scikit-learn',
+      'TensorFlow & Keras',
+      'Deep Learning',
+      'NLP and Computer Vision',
+      'Data preprocessing and feature engineering',
+      'Model training and evaluation'
     ]
   },
   {
     id: '03',
-    title: 'BACKEND & API DEVELOPMENT',
-    description: 'I develop secure and scalable backend systems with well-structured APIs, efficient databases, and authentication mechanisms to power modern web applications.',
+    title: 'FULL STACK DEVELOPMENT',
+    description: 'I build production-oriented web applications from frontend to backend, including employee management systems, HRMS platforms, and real-world business applications.',
     capabilities: [
-      'FastAPI',
-      'Node.js',
-      'Express.js',
-      'MongoDB',
-      'PostgreSQL',
-      'JWT Authentication'
+      'React.js & Next.js',
+      'FastAPI & Node.js',
+      'REST APIs with JWT authentication',
+      'MongoDB & PostgreSQL',
+      'End-to-end application development',
+      'Testing and deployment'
     ]
   },
   {
     id: '04',
-    title: 'AI & AUTOMATION',
-    description: 'I integrate artificial intelligence into applications to automate workflows, improve productivity, and create intelligent user experiences using modern AI technologies.',
+    title: 'AI ANALYTICS & DATA',
+    description: 'I create AI-powered analytics platforms that automate data profiling, validation, analysis planning, and visualization generation through natural-language instructions.',
     capabilities: [
-      'OpenAI Integration',
-      'LangChain',
-      'MCP',
-      'Prompt Engineering',
-      'AI Chatbots',
-      'Workflow Automation'
+      'Automated dataset profiling',
+      'Data validation and cleaning',
+      'Natural-language analytics',
+      'Pandas & NumPy analysis',
+      'Visualization generation',
+      'Production-oriented architecture'
     ]
   },
   {
     id: '05',
-    title: 'MOBILE DEVELOPMENT',
-    description: 'I build responsive cross-platform mobile applications with smooth performance, intuitive interfaces, and seamless integration with backend services.',
+    title: 'BACKEND & APIS',
+    description: 'I develop secure and scalable backend systems with well-structured APIs, efficient databases, and authentication mechanisms to power modern web applications.',
     capabilities: [
-      'React Native',
-      'API Integration',
-      'Responsive UI',
-      'State Management',
-      'Performance Optimization'
+      'FastAPI',
+      'Node.js & Express.js',
+      'REST APIs',
+      'JWT Authentication',
+      'MongoDB & PostgreSQL',
+      'Error handling and validation'
     ]
   },
   {
     id: '06',
     title: 'DEVOPS & TOOLS',
-    description: 'I streamline development workflows with modern tools for version control, deployment, testing, and collaboration, ensuring reliable and efficient software delivery.',
+    description: 'I use modern development tools for version control, deployment, testing, and collaboration to ensure reliable and efficient software delivery.',
     capabilities: [
       'Git & GitHub',
       'Docker',
+      'GitHub Actions',
       'Postman',
-      'CI/CD',
-      'VS Code',
-      'Cloud Deployment'
+      'Streamlit',
+      'Linux'
     ]
   }
 ];
@@ -122,14 +124,14 @@ const Services = () => {
 
 
   return (
-    <section id="service" className="md:min-h-screen bg-[#050505] text-white pt-12 pb-12 md:pb-24 px-6 md:px-16 flex flex-col relative overflow-hidden">
+    <section id="expertise" className="md:min-h-screen bg-[#050505] text-white pt-12 pb-12 md:pb-24 px-6 md:px-16 flex flex-col relative overflow-hidden">
       
       {/* Top Header Section */}
       <div className="flex flex-col md:flex-row items-end md:items-start justify-end w-full mt-0 z-0 pb-12">
         {/* Giant Title */}
         <div className="flex flex-col md:flex-row items-start justify-end gap-2 md:gap-4 lg:gap-8 pr-2 md:pr-0 text-right">
           <h2 ref={titleRef} className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-300 to-gray-800 drop-shadow-2xl leading-[1.1] md:leading-[0.9] text-right">
-            WHAT WE<br/>CAN DO
+            WHAT I<br/>BUILD
           </h2>
         </div>
       </div>

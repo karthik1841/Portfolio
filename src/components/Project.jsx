@@ -2,52 +2,86 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const projects = [
   {
-    name: 'INSTAGRAM ai AUTOMATION PLATFORM',
+    name: 'AI Analytics Copilot',
     title: (
       <>
-        INSTAGRAM <span className="font-light italic text-gray-300 lowercase font-serif">ai</span><br />
-        AUTOMATION PLATFORM
+        AI ANALYTICS <span className="font-light italic text-gray-300 lowercase font-serif">copilot</span><br />
+        AUTONOMOUS DATA ANALYST
       </>
     ),
-    description: "An AI-powered Instagram chat automation platform that instantly responds to customer messages, qualifies leads, automates conversations, and helps businesses improve engagement while saving time through intelligent workflows.",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop"
+    description: "An AI-powered analytics platform that allows users to upload datasets and provide natural-language instructions. The system automatically profiles datasets, validates data, creates analysis plans, executes analysis using Python/Pandas/NumPy, generates visualizations, and produces comprehensive insights and reports with production-oriented architecture.",
+    technologies: "Python, FastAPI, Pandas, NumPy, Scikit-learn, LLMs, React, PostgreSQL, Redis, Docker",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop",
+    github: "https://github.com/karthik1841"
   },
   {
-    name: 'LiveMeet Translate',
+    name: 'AI Personal Companion',
     title: (
       <>
-        LIVEMEET <br />
-        TRANSLATE
+        AI PERSONAL<br />
+        COMPANION
       </>
     ),
-    description: "A real-time AI-powered Google Meet translation platform that listens to live conversations, converts speech to text, translates it into the user's preferred language, and automatically generates organized meeting notes with AI-powered summaries and key action items.",
-    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2000&auto=format&fit=crop"
+    description: "An AI-powered personal companion designed to understand natural-language conversations, maintain contextual interactions, provide personalized assistance, and support automated task execution. Features LLM-powered conversational interaction, context management, personalized assistance, AI workflows, and tool-based task execution with FastAPI backend and React frontend.",
+    technologies: "Python, LLMs, LangChain, FastAPI, React.js, MongoDB",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2000&auto=format&fit=crop",
+    github: "https://github.com/karthik1841"
   },
   {
-    name: 'AI Smart Keyboard APP',
+    name: 'AI Agent & Multi-Agent Automation',
     title: (
       <>
-        AI SMART <br />
-        KEYBOARD APP
+        AI AGENT &<br />
+        MULTI-AGENT AUTOMATION
       </>
     ),
-    description: "An AI-powered mobile keyboard application built with Flutter that enhances typing through real-time grammar correction, spelling fixes, intelligent word prediction, and AI-driven sentence rewriting. It delivers fluent, natural English while providing a fast, responsive, and seamless typing experience across mobile applications.A next-generation keyboard application that utilizes artificial intelligence to learn your typing habits and provide context-aware predictions.",
-    image: "https://images.unsplash.com/photo-1587831990711-23ca6441447b?q=80&w=2000&auto=format&fit=crop"
+    description: "A collection of AI agent workflows designed for task decomposition, reasoning, tool-based execution, automation, and multi-agent collaboration. Features AI agents, multi-agent systems, task decomposition, reasoning workflows, tool calling, automated task execution, LLM API integration, structured outputs, and modular agent architecture.",
+    technologies: "Python, LangChain, AutoGen, CrewAI, LLM APIs",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop",
+    github: "https://github.com/karthik1841"
   },
   {
-    name: 'Nova AI – Intelligent Desktop Assistant',
+    name: 'Crop Prediction Platform',
     title: (
       <>
-        JARVIS <span className="font-light italic text-gray-300 lowercase font-serif">ai</span><br />
-        DESKTOP ASSISTANT
+        CROP PREDICTION &<br />
+        YIELD PREDICTION PLATFORM
       </>
     ),
-    description: "An AI-powered desktop assistant that enables hands-free laptop control through natural voice commands. It can open applications, manage files, browse the web, answer questions, automate tasks, and execute system commands using advanced speech recognition and large language models.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop"
+    description: "Machine learning platform for crop recommendation and agricultural yield prediction using soil, weather, environmental, and regional parameters. Features data preprocessing, feature encoding, missing-value handling, model training, model evaluation, prediction, and an interactive Streamlit interface.",
+    technologies: "Python, Scikit-learn, Pandas, NumPy, Random Forest, Streamlit",
+    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2000&auto=format&fit=crop",
+    github: "https://github.com/karthik1841"
+  },
+  {
+    name: 'Plant Disease Detection',
+    title: (
+      <>
+        PLANT DISEASE<br />
+        DETECTION SYSTEM
+      </>
+    ),
+    description: "Computer vision application for detecting plant diseases from leaf images using deep learning. Features image classification using Xception and DenseNet121 architectures, disease prediction, and an interactive Streamlit interface for agricultural applications.",
+    technologies: "Python, TensorFlow, Keras, Xception, DenseNet121, Streamlit",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop",
+    github: "https://github.com/karthik1841"
+  },
+  {
+    name: 'AI-Powered HRMS',
+    title: (
+      <>
+        AI-POWERED<br />
+        HRMS PLATFORM
+      </>
+    ),
+    description: "Employee management platform supporting employee records, authentication, role-based access, attendance, and organizational workflows. Built as a full-stack application with React.js frontend, Node.js/Express.js backend, MongoDB/Firebase database, REST APIs, and JWT authentication.",
+    technologies: "React.js, Node.js, Express.js, MongoDB/Firebase, REST APIs, JWT",
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2000&auto=format&fit=crop",
+    github: "https://github.com/karthik1841"
   }
 ];
 
-const Project = ({ onCtaClick }) => {
+const Project = () => {
   return (
     <div id="project" className="bg-[#050505] w-full text-white pt-10 md:pt-20 pb-24 px-6 md:px-16">
 
@@ -65,14 +99,14 @@ const Project = ({ onCtaClick }) => {
         {/* Right Description */}
         <div className="w-full lg:w-4/12 flex flex-col items-start lg:mt-4">
           <p className="text-gray-300 text-sm md:text-base font-light leading-relaxed mb-8">
-            As a frontend developer using modern ideas, simplicity design and universal visual identification tailored to dedicated and current market.
+            AI Engineer and Full Stack Developer building LLM-powered applications, intelligent agents, analytics systems, and production-oriented software.
           </p>
-          <button onClick={onCtaClick} className="cursor-pointer px-6 py-2.5 rounded-full border border-[#ccff00] bg-[#ccff00] text-black font-medium text-xs md:text-sm hover:bg-[#b3e600] hover:border-[#b3e600] transition-colors flex items-center gap-2">
-            Read More
+          <a href="https://github.com/karthik1841" target="_blank" rel="noopener noreferrer" className="cursor-pointer px-6 py-2.5 rounded-full border border-[#ccff00] bg-[#ccff00] text-black font-medium text-xs md:text-sm hover:bg-[#b3e600] hover:border-[#b3e600] transition-colors flex items-center gap-2">
+            GitHub
             <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
             </svg>
-          </button>
+          </a>
         </div>
       </div>
 
@@ -100,23 +134,20 @@ const Project = ({ onCtaClick }) => {
                 <h3 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter text-white leading-[1.1] uppercase mb-6">
                   {proj.title}
                 </h3>
-                <p className="text-gray-400 text-sm md:text-base font-light leading-relaxed mb-10">
+                <p className="text-gray-400 text-sm md:text-base font-light leading-relaxed mb-6">
                   {proj.description}
+                </p>
+                <p className="text-gray-500 text-xs md:text-sm font-light mb-8">
+                  <span className="text-[#ccff00]">Technologies:</span> {proj.technologies}
                 </p>
 
                 <div className="flex items-center gap-4 flex-wrap">
-                  <button onClick={onCtaClick} className="cursor-pointer px-6 py-2.5 rounded-full border border-[#ccff00] bg-[#ccff00] text-black text-xs md:text-sm font-medium hover:bg-[#b3e600] hover:border-[#b3e600] transition-colors inline-flex items-center gap-2">
-                    Live Demo
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                    </svg>
-                  </button>
-                  <button onClick={onCtaClick} className="cursor-pointer px-6 py-2.5 rounded-full border border-white/30 text-white text-xs md:text-sm hover:bg-white hover:text-black transition-colors inline-flex items-center gap-2">
+                  <a href={proj.github} target="_blank" rel="noopener noreferrer" className="cursor-pointer px-6 py-2.5 rounded-full border border-white/30 text-white text-xs md:text-sm hover:bg-white hover:text-black transition-colors inline-flex items-center gap-2">
                     GitHub
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                     </svg>
-                  </button>
+                  </a>
                 </div>
               </div>
 

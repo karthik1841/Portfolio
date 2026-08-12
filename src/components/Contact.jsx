@@ -1,47 +1,7 @@
-import React, { useState, useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import React from 'react';
 import contactBgVideo from '../assets/contact_assets/contact_bg.mp4';
 
 const ContactSection = () => {
-    const formRef = useRef();
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [statusMessage, setStatusMessage] = useState({ text: '', type: '' });
-
-    const sendEmail = (e) => {
-        e.preventDefault();
-        
-        const formData = new FormData(formRef.current);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
-        
-        if (!name || !email || !message) {
-            setStatusMessage({ text: 'Please fill in all required fields.', type: 'error' });
-            return;
-        }
-
-        setIsSubmitting(true);
-        setStatusMessage({ text: '', type: '' });
-
-        emailjs.sendForm(
-            import.meta.env.VITE_EMAILJS_SERVICE_ID,
-            import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-            formRef.current,
-            import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-        )
-        .then(() => {
-            setStatusMessage({ text: 'Message sent successfully!', type: 'success' });
-            formRef.current.reset();
-        })
-        .catch((error) => {
-            console.error('EmailJS error:', error);
-            setStatusMessage({ text: 'Failed to send message. Please try again later.', type: 'error' });
-        })
-        .finally(() => {
-            setIsSubmitting(false);
-        });
-    };
-
     return (
         <div id="contact" className="relative min-h-screen text-white font-sans flex items-center overflow-hidden [clip-path:inset(0)]">
             
@@ -68,47 +28,36 @@ const ContactSection = () => {
                     </h2>
 
                     <div className="flex flex-col gap-10">
-                        {/* Email */}
+                        {/* GitHub */}
                         <div className="hidden md:block">
-                            <p className="text-gray-400 text-sm mb-2">Email:</p>
-                            <p className="text-xl tracking-wide">leesharkofficial@gmail.com</p>
+                            <p className="text-gray-400 text-sm mb-2">GitHub:</p>
+                            <a href="https://github.com/karthik1841" target="_blank" rel="noopener noreferrer" className="text-xl tracking-wide hover:text-gray-300 transition-colors">
+                                github.com/karthik1841
+                            </a>
                         </div>
 
-                        {/* Phone */}
+                        {/* LinkedIn */}
                         <div className="hidden md:block">
-                            <p className="text-gray-400 text-sm mb-2">Phone:</p>
-                            <p className="text-xl tracking-wide">{import.meta.env.VITE_PHONE_NUMBER}</p>
+                            <p className="text-gray-400 text-sm mb-2">LinkedIn:</p>
+                            <a href="https://linkedin.com/in/karthik-p-668928255" target="_blank" rel="noopener noreferrer" className="text-xl tracking-wide hover:text-gray-300 transition-colors">
+                                linkedin.com/in/karthik-p-668928255
+                            </a>
                         </div>
 
-
-
-                        {/* Follow Us */}
+                        {/* Connect with me */}
                         <div className="mt-4 flex flex-col items-center md:items-start">
-                            <p className="text-gray-400 text-sm mb-4">Follow us</p>
+                            <p className="text-gray-400 text-sm mb-4">Connect with me</p>
                             <div className="flex items-center justify-center md:justify-start gap-3">
-                                <a href="https://www.instagram.com/lema.web/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <a href="https://github.com/karthik1841" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                                     </svg>
                                 </a>
-                                <a href="https://www.youtube.com/@leeshark" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M2.5 7.1C2.5 7.1 2.3 5.4 3 4.6 3.8 3.8 4.7 3.8 5.1 3.7 8.3 3.5 12 3.5 12 3.5s3.7 0 6.9.2c.4.1 1.3.1 2.1.9.7.8.9 2.5.9 2.5s.2 2 .2 4v1.7c0 2-.2 4-.2 4s-.2 1.7-.9 2.5c-.8.8-1.9.8-2.3.9-3.5.3-7 .2-7 .2s-3.7 0-6.9-.2c-.4-.1-1.5-.1-2.3-.9-.7-.8-.9-2.5-.9-2.5s-.2-2-.2-4V11.1c0-2 .2-4 .2-4z"/>
-                                        <polygon points="9.5,15.5 16,11.5 9.5,7.5"/>
-                                    </svg>
-                                </a>
-                                <a href="https://www.linkedin.com/in/leeshark-p-1a9642291/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <a href="https://linkedin.com/in/karthik-p-668928255" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                                         <rect width="4" height="12" x="2" y="9"/>
                                         <circle cx="4" cy="4" r="2"/>
-                                    </svg>
-                                </a>
-                                <a href="https://github.com/leeshark21/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                                     </svg>
                                 </a>
                             </div>
@@ -116,95 +65,52 @@ const ContactSection = () => {
                     </div>
                 </div>
 
-                {/* Right Side: Contact Form */}
+                {/* Right Side: Contact Info Card */}
                 <div className="w-full lg:w-7/12 flex flex-col lg:pt-4">
-                    <form ref={formRef} className="flex flex-col gap-5 w-full" onSubmit={sendEmail}>
-                        
-                        {/* Name and Email Row */}
-                        <div className="flex flex-col md:flex-row gap-4 w-full">
-                            <div className="flex flex-col gap-1.5 w-full md:w-1/2">
-                                <label className="text-xs text-gray-400 font-medium">Your Name</label>
-                                <input 
-                                    type="text" 
-                                    name="name"
-                                    placeholder="Your full name" 
-                                    required
-                                    className="w-full bg-[#111] text-white text-sm rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-white/30 transition-all placeholder:text-gray-600 border border-transparent"
-                                />
-                            </div>
-                            <div className="flex flex-col gap-1.5 w-full md:w-1/2">
-                                <label className="text-xs text-gray-400 font-medium">Email address</label>
-                                <input 
-                                    type="email" 
-                                    name="email"
-                                    placeholder="Your email address" 
-                                    required
-                                    className="w-full bg-[#111] text-white text-sm rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-white/30 transition-all placeholder:text-gray-600 border border-transparent"
-                                />
-                            </div>
-                        </div>
+                    <div className="bg-white/5 backdrop-blur-md p-8 md:p-10 rounded-3xl border border-white/10">
+                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">Let's Connect</h3>
+                        <p className="text-gray-300 text-base mb-8 leading-relaxed">
+                            I'm currently open to opportunities in AI Engineering and Full Stack Development. Feel free to reach out through GitHub or LinkedIn.
+                        </p>
 
-                        {/* Phone and Subject Row */}
-                        <div className="flex flex-col md:flex-row gap-4 w-full">
-                            <div className="flex flex-col gap-1.5 w-full md:w-1/2">
-                                <label className="text-xs text-gray-400 font-medium">Phone</label>
-                                <input 
-                                    type="tel" 
-                                    name="phone"
-                                    placeholder="Your phone number" 
-                                    className="w-full bg-[#111] text-white text-sm rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-white/30 transition-all placeholder:text-gray-600 border border-transparent"
-                                />
-                            </div>
-                            <div className="flex flex-col gap-1.5 w-full md:w-1/2">
-                                <label className="text-xs text-gray-400 font-medium">Subject</label>
-                                <input 
-                                    type="text" 
-                                    name="subject"
-                                    placeholder="Subject" 
-                                    className="w-full bg-[#111] text-white text-sm rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-white/30 transition-all placeholder:text-gray-600 border border-transparent"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Message */}
-                        <div className="flex flex-col gap-1.5 w-full">
-                            <label className="text-xs text-gray-400 font-medium">Message</label>
-                            <textarea 
-                                name="message"
-                                placeholder="Write something...." 
-                                rows="5"
-                                required
-                                className="w-full bg-[#111] text-white text-sm rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-white/30 transition-all placeholder:text-gray-600 border border-transparent resize-none"
-                            ></textarea>
-                        </div>
-
-                        {/* Status Message */}
-                        {statusMessage.text && (
-                            <div className={`text-sm px-4 py-3 rounded-lg border ${statusMessage.type === 'success' ? 'bg-green-500/10 border-green-500/50 text-green-400' : 'bg-red-500/10 border-red-500/50 text-red-400'}`}>
-                                {statusMessage.text}
-                            </div>
-                        )}
-
-                        {/* Submit Button */}
-                        <button 
-                            type="submit" 
-                            disabled={isSubmitting}
-                            className="w-full bg-white text-black text-sm font-semibold rounded-lg py-3 hover:bg-gray-200 transition-colors mt-2 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                        >
-                            {isSubmitting ? (
-                                <>
-                                    <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        <div className="flex flex-col gap-6">
+                            <a href="https://github.com/karthik1841" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                                     </svg>
-                                    Sending...
-                                </>
-                            ) : (
-                                'Send Message'
-                            )}
-                        </button>
+                                </div>
+                                <div>
+                                    <p className="text-white font-medium">GitHub</p>
+                                    <p className="text-gray-400 text-sm">github.com/karthik1841</p>
+                                </div>
+                            </a>
 
-                    </form>
+                            <a href="https://linkedin.com/in/karthik-p-668928255" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                        <rect width="4" height="12" x="2" y="9"/>
+                                        <circle cx="4" cy="4" r="2"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p className="text-white font-medium">LinkedIn</p>
+                                    <p className="text-gray-400 text-sm">linkedin.com/in/karthik-p-668928255</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div className="mt-8 pt-6 border-t border-white/10">
+                            <p className="text-gray-400 text-sm mb-4">Certifications</p>
+                            <div className="flex flex-wrap gap-2">
+                                <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-gray-300">Google Data Analytics</span>
+                                <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-gray-300">C++ DSA</span>
+                                <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-gray-300">SQL</span>
+                                <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-gray-300">Python</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
